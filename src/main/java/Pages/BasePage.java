@@ -11,13 +11,22 @@ import java.util.List;
 import java.util.Set;
 
 public class BasePage {
-
+    public static WebDriver driver;
     public BasePage() {
+        System.setProperty("webdriver.gecko.driver", "A:\\Selenium\\geckodriver-v0.19.1-win64\\geckodriver.exe");
+        driver = new FirefoxDriver();
 
     }
-    public void WebDriver(){
-        System.setProperty("webdriver.gecko.driver", "A:\\Selenium\\geckodriver-v0.19.1-win64\\geckodriver.exe");
-        WebDriver driver = new FirefoxDriver();
-        driver.get("http://www.alik.cz");
+    public WebDriver getDriver(){
+        return driver;
+    }
+    public static void getURL(String s){
+        driver.get(s);
+    }
+    public void input(WebElement xPath, String message){
+        xPath.sendKeys(message);
+    }
+    public void click(WebElement xPath){
+        xPath.click();
     }
 }
