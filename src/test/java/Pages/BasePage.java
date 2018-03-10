@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -20,10 +21,13 @@ public class BasePage {
     protected static void getURL(String s){
         driver.get(s);
     }
-    void input(WebElement element, String message){
+    public void input(WebElement element, String message){
         element.sendKeys(message);
     }
-    void click(WebElement element){
+    public void click(WebElement element){
         element.click();
+    }
+    public boolean isElementPresentAndVisible(String s){
+        return getDriver().findElements(By.xpath(s)).isEmpty();
     }
 }
