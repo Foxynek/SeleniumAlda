@@ -10,6 +10,8 @@ public class InboxPage extends BasePage{
 
     public InboxPage(WebDriver wd){
         super(driver);
+        switchToLastWindowHandle();
+        waitForElementToLoad(emailMessage);
     }
     @FindBy (xpath = ".//a[@title='automat@alik.cz']")
     private WebElement emailMessage;

@@ -28,7 +28,7 @@ public class SignUpPage extends BasePage {
         input(emailAdressField, s);
         return this;
     }
-    public SignUpPage inputPasswrod(String s){
+    public SignUpPage inputPassword(String s){
         input(passwordField, s);
         return this;
     }
@@ -49,7 +49,13 @@ public class SignUpPage extends BasePage {
         return this;
     }
     public ConfirmRegistrationPage clickOnConfirmButton(){
-        click(confirmButton);
+        try{
+            Thread.sleep(5000);
+            click(confirmButton);
+        }
+        catch (InterruptedException e){
+            e.printStackTrace();
+        }
         return new ConfirmRegistrationPage(getDriver());
     }
 }

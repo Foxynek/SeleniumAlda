@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
     protected static WebDriver driver;
-
+    private String w;
 
     public BasePage(WebDriver driver) {
         BasePage.driver = driver;
@@ -17,6 +17,27 @@ public class BasePage {
     }
     protected static WebDriver getDriver(){
         return driver;
+    }
+    protected static void switchToLastWindowHandle(){
+        for(String winHandle : driver.getWindowHandles()){
+            driver.switchTo().window(winHandle);
+        }
+    }
+    protected void getWindowHandle(){
+        w = driver.getWindowHandle();
+    }
+    protected void switchToCustomHandle(){
+        driver.switchTo().window(w);
+    }
+    protected void waitForElementToLoad(WebElement element){    //fix this wait shit
+        /*do{
+            try{
+                Thread.sleep(500);
+            }
+            catch(InterruptedException e){
+                e.printStackTrace();
+            }
+        }while(element.isEnabled());*/
     }
     protected static void getURL(String s){
         driver.get(s);

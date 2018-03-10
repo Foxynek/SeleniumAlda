@@ -18,6 +18,10 @@ public class OpenURLAndLogin extends BasePage {
         driver.get("http://www.alik.cz");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
+    @AfterTest
+    public void afterTest() {
+        driver.quit();
+    }
 
     @Test
     public void openURL() {
@@ -32,10 +36,5 @@ public class OpenURLAndLogin extends BasePage {
                   .clickOnSend();
             System.out.println("done");
       }
-
-    @AfterTest
-    public void afterTest() {
-        driver.quit();
-    }
 }
 
