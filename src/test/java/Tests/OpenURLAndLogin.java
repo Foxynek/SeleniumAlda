@@ -3,6 +3,7 @@ package Tests;
 import Pages.AfterLoginPage;
 import Pages.BasePage;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -11,10 +12,11 @@ public class OpenURLAndLogin extends BasePage {
 
     public OpenURLAndLogin(WebDriver driver) {
         super(driver);
-    }
-    @Test (description = "test")
-      public void OpenURL() {
+        setDriver();
         getURL("http://www.alik.cz");
+    }
+    @Test
+    public void OpenURL() {
         AfterLoginPage afterLoginPage = new AfterLoginPage(getDriver());
             afterLoginPage
                   .inputUserName("McCree")
@@ -24,5 +26,7 @@ public class OpenURLAndLogin extends BasePage {
                   .clickOnChatRoom()
                   .inputMessage("ahoj")
                   .clickOnSend();
+            System.out.println("done");
       }
+
 }

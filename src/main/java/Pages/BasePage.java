@@ -11,16 +11,18 @@ import java.util.List;
 import java.util.Set;
 
 public class BasePage {
-    public final WebDriver driver;
+    private static WebDriver driver;
     public BasePage(WebDriver driver) {
-        this.driver = driver;
+        BasePage.driver = driver;
+    }
+    protected static void setDriver(){
         System.setProperty("webdriver.gecko.driver", "A:\\Selenium\\geckodriver-v0.19.1-win64\\geckodriver.exe");
         driver = new FirefoxDriver();
     }
-    public WebDriver getDriver(){
+    protected static WebDriver getDriver(){
         return driver;
     }
-    public void getURL(String s){
+    protected static void getURL(String s){
         driver.get(s);
     }
     public void input(WebElement xPath, String message){
