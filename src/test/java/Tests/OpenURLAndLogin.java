@@ -3,8 +3,6 @@ package Tests;
 import Pages.AfterLoginPage;
 import Pages.BasePage;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
