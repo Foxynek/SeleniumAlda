@@ -1,17 +1,20 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
-    private static WebDriver driver;
+    protected static WebDriver driver;
+
+
     public BasePage(WebDriver driver) {
         BasePage.driver = driver;
+        PageFactory.initElements(driver, this);
     }
-    protected static void setDriver(){
-        System.setProperty("webdriver.gecko.driver", "A:\\Selenium\\geckodriver-v0.19.1-win64\\geckodriver.exe");
-        driver = new FirefoxDriver();
+    public BasePage(){
     }
     protected static WebDriver getDriver(){
         return driver;
@@ -19,10 +22,10 @@ public class BasePage {
     protected static void getURL(String s){
         driver.get(s);
     }
-    public void input(WebElement xPath, String message){
-        xPath.sendKeys(message);
+    void input(WebElement element, String message){
+        element.sendKeys(message);
     }
-    public void click(WebElement xPath){
-        xPath.click();
+    void click(WebElement element){
+        element.click();
     }
 }

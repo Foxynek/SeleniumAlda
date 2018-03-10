@@ -1,3 +1,4 @@
+
 package Pages;
 
 import org.openqa.selenium.WebDriver;
@@ -5,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ChatRoomPage extends BasePage {
-    public ChatRoomPage(WebDriver driver){
+    public ChatRoomPage(WebDriver wd){
         super(driver);
     }
     @FindBy(xpath=".//*[@id='say']")
@@ -23,3 +24,4 @@ public class ChatRoomPage extends BasePage {
         return this;
     }
 }
+

@@ -1,11 +1,13 @@
+
 package Pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+
 public class AfterLoginPage extends BasePage {
-    public AfterLoginPage(WebDriver driver){
+    public AfterLoginPage(WebDriver wd){
         super(driver);
     }
     @FindBy (xpath=".//*[@id='login']")
@@ -38,3 +40,4 @@ public class AfterLoginPage extends BasePage {
     }
 
 }
+
