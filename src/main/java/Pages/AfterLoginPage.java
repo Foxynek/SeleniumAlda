@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class AfterLoginPage extends BasePage {
     public AfterLoginPage(WebDriver driver){
-        this.driver = driver;
+        super(driver);
     }
     @FindBy (xpath=".//*[@id='login']")
     private WebElement inputUserName;
@@ -22,11 +22,11 @@ public class AfterLoginPage extends BasePage {
 
     public AfterLoginPage inputUserName(String s){
         input(inputUserName, s);
-        return new AfterLoginPage(getDriver());
+        return this;
     }
     public AfterLoginPage inputPwd(String s){
         input(inputUserPwd, s);
-        return new AfterLoginPage(getDriver());
+        return this;
     }
     public AfterLoginPage clickOnLogin(){
         click(clickOnLogin);

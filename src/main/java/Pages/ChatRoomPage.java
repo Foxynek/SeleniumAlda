@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class ChatRoomPage extends BasePage{
     public ChatRoomPage(WebDriver driver){
-        this.driver = driver;
+        super(driver);
     }
     @FindBy(xpath=".//*[@id='say']")
     private WebElement inputMessage;
@@ -16,10 +16,10 @@ public class ChatRoomPage extends BasePage{
 
     public ChatRoomPage inputMessage(String s){
         input(inputMessage, s);
-        return new ChatRoomPage(getDriver());
+        return this;
     }
     public ChatRoomPage clickOnSend(){
         click(clickOnSend);
-        return new ChatRoomPage(getDriver());
+        return this;
     }
 }
