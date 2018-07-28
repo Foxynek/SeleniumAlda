@@ -3,7 +3,11 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.concurrent.TimeUnit;
 
 public class BasePage {
     protected static WebDriver driver;
@@ -14,6 +18,14 @@ public class BasePage {
         PageFactory.initElements(driver, this);
     }
     public BasePage(){
+    }
+    protected void setDriverProperties(){
+        System.setProperty("webdriver.gecko.driver", "A:\\Selenium\\geckodriver-v0.19.1-win64\\geckodriver.exe");
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.setCapability("marionette", true);
+        driver = new FirefoxDriver();
+        driver.get("http://www.alik.cz");
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
     protected static WebDriver getDriver(){
         return driver;
@@ -42,13 +54,13 @@ public class BasePage {
     protected static void getURL(String s){
         driver.get(s);
     }
-    public void input(WebElement element, String message){
+    protected void input(WebElement element, String message){
         element.sendKeys(message);
     }
     public void click(WebElement element){
         element.click();
     }
-    public boolean isElementPresentAndVisible(String s){
+    protected boolean isElementPresentAndVisible(String s){
         return getDriver().findElements(By.xpath(s)).isEmpty();
     }
 }
