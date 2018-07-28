@@ -4,7 +4,12 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version'
+                bat 'set'
+            }
+        }
+        stage('Test'){
+            steps{
+                bat 'echo "Fail!"; exit 1'
             }
         }
     }
