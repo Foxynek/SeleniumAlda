@@ -15,7 +15,7 @@ public class ChatRoomPage extends BasePage {
     @FindBy (xpath=".//*[@id='send-text']")
     private WebElement clickOnSend;
 
-    @FindBy (xpath=".//*[text()='Odejít']")
+    @FindBy (xpath=".//*[@href='/k/jen-tak-na-pokec/odejit']")
     private WebElement clickOnLeaveRoom;
 
     public ChatSelectionPage clickOnLeaveRoomButton(){
