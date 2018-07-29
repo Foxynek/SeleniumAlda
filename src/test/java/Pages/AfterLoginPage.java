@@ -1,6 +1,7 @@
 
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,6 +29,15 @@ public class AfterLoginPage extends BasePage {
     @FindBy(xpath = ".//a[@href='/odhlasit']")
     private WebElement logoutButton;
 
+    public String checkWhetherLoginFormIsPresent(){
+        if (getDriver().findElements(By.xpath(".//form[@id='prihlaseni']")).size()>0){
+            return "Login form is present";
+        }
+        else{
+            return "Login form not present";
+        }
+    }
+
     public AccountCreationFirstPage clickOnRegistrationButton(){
         click(registrationButton);
         return new AccountCreationFirstPage(getDriver());
@@ -35,6 +45,7 @@ public class AfterLoginPage extends BasePage {
     public boolean checkIfUserIsLoggedIn(){
         return isElementPresentAndVisible(".//a[@href='/odhlasit']");
     }
+
     public AfterLoginPage clickOnLogoutButton(){
         click(logoutButton);
         return this;

@@ -3,6 +3,8 @@ package Tests;
 
 import Pages.AfterLoginPage;
 import Pages.BasePage;
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -27,9 +29,13 @@ public class OpenURLAndLogin extends BasePage {
                   .clickOnLogin()
                   .clickOnChat()
                   .clickOnChatRoom()
-                  .inputMessage("ahoj")
-                  .clickOnSend();
-            System.out.println("done");
+                  .inputMessage("test")
+                  .clickOnSend()
+                  .inputMessage("test done")
+                  .clickOnSend()
+                  .clickOnLeaveRoomButton()
+                  .clickOnLogoutButton();
+        Assert.assertEquals(afterLoginPage.checkWhetherLoginFormIsPresent(), "Login form is present");
       }
 }
 

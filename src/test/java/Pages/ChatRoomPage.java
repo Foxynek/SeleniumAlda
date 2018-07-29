@@ -15,6 +15,14 @@ public class ChatRoomPage extends BasePage {
     @FindBy (xpath=".//*[@id='send-text']")
     private WebElement clickOnSend;
 
+    @FindBy (xpath=".//*[text()='Odejít']")
+    private WebElement clickOnLeaveRoom;
+
+    public ChatSelectionPage clickOnLeaveRoomButton(){
+        click(clickOnLeaveRoom);
+        return new ChatSelectionPage(getDriver());
+    }
+
     public ChatRoomPage inputMessage(String s){
         input(inputMessage, s);
         return this;
