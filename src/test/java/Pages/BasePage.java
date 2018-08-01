@@ -10,12 +10,12 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.concurrent.TimeUnit;
 
 public class BasePage {
-    protected static WebDriver driver;
+    protected static WebDriver wd;
     private String w;
 
-    public BasePage(WebDriver driver) {
-        BasePage.driver = driver;
-        PageFactory.initElements(driver, this);
+    public BasePage(WebDriver wd) {
+        BasePage.wd = wd;
+        PageFactory.initElements(wd, this);
     }
     public BasePage(){
     }
@@ -23,23 +23,23 @@ public class BasePage {
         System.setProperty("webdriver.gecko.driver", "A:\\Selenium\\geckodriver-v0.19.1-win64\\geckodriver.exe");
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setCapability("marionette", true);
-        driver = new FirefoxDriver();
-        driver.get("http://www.alik.cz");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wd = new FirefoxDriver();
+        wd.get("http://www.alik.cz");
+        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
     protected static WebDriver getDriver(){
-        return driver;
+        return wd;
     }
     protected static void switchToLastWindowHandle(){
-        for(String winHandle : driver.getWindowHandles()){
-            driver.switchTo().window(winHandle);
+        for(String winHandle : wd.getWindowHandles()){
+            wd.switchTo().window(winHandle);
         }
     }
     protected void getWindowHandle(){
-        w = driver.getWindowHandle();
+        w = wd.getWindowHandle();
     }
     protected void switchToCustomHandle(){
-        driver.switchTo().window(w);
+        wd.switchTo().window(w);
     }
     protected void waitForElementToLoad(WebElement element){    //fix this wait shit
         /*do{
@@ -50,9 +50,6 @@ public class BasePage {
                 e.printStackTrace();
             }
         }while(element.isEnabled());*/
-    }
-    protected static void getURL(String s){
-        driver.get(s);
     }
     protected void input(WebElement element, String message){
         element.sendKeys(message);

@@ -1,13 +1,16 @@
 
-package Pages;
+package Pages.AlikPages;
 
+import Pages.AlikPages.AfterLoginPage;
+import Pages.AlikPages.ChatRoomPage;
+import Pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ChatSelectionPage extends BasePage {
     public ChatSelectionPage(WebDriver wd){
-        super(driver);
+        super(wd);
     }
     @FindBy(xpath=".//strong/a[@href='/k/jen-tak-na-pokec']")
     private WebElement clickOnChatRoom;

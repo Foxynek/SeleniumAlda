@@ -1,13 +1,14 @@
-package Pages;
+package Pages.AlikPages;
 
+import Pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AccountCreationFirstPage extends BasePage{
+public class AccountCreationFirstPage extends BasePage {
 
     public AccountCreationFirstPage(WebDriver wd){
-        super(driver);
+        super(wd);
     }
 
     @FindBy(xpath = ".//*[@id='prezdivka']")

@@ -1,9 +1,8 @@
 
 package Tests;
 
-import Pages.AfterLoginPage;
+import Pages.AlikPages.AfterLoginPage;
 import Pages.BasePage;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -17,7 +16,7 @@ public class OpenURLAndLogin extends BasePage {
     }
     @AfterTest
     public void afterTest() {
-        driver.quit();
+        wd.quit();
     }
 
     @Test

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 public class ConfirmRegistrationPage extends BasePage {
 
     public ConfirmRegistrationPage(WebDriver wd){
-        super(driver);
+        super(wd);
     }
     @FindBy(xpath = ".//a[@class='to-homepage']")
     private WebElement homepageButton;

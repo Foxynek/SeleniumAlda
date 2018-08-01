@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class SignUpPage extends BasePage {
     public SignUpPage(WebDriver wd){
-        super(driver);
+        super(wd);
     }
     @FindBy(xpath = ".//*[@id='register-username']")
     private WebElement emailAdressField;

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 public class SignInPage extends BasePage{
 
     public SignInPage(WebDriver wd){
-        super(driver);
+        super(wd);
         switchToLastWindowHandle();
         waitForElementToLoad(emailAdressField);
     }

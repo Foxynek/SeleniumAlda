@@ -1,6 +1,5 @@
 package Pages.EmailPages;
 
-import Pages.AfterLoginPage;
 import Pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 public class InboxPage extends BasePage{
 
     public InboxPage(WebDriver wd){
-        super(driver);
+        super(wd);
         switchToLastWindowHandle();
         waitForElementToLoad(emailMessage);
     }

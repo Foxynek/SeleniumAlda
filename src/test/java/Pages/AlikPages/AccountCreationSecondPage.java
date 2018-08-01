@@ -1,5 +1,6 @@
-package Pages;
+package Pages.AlikPages;
 
+import Pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 public class AccountCreationSecondPage extends BasePage {
 
     public AccountCreationSecondPage(WebDriver wd){
-        super(driver);
+        super(wd);
     }
 
     @FindBy(xpath = ".//*[@id='bkrok2']")
