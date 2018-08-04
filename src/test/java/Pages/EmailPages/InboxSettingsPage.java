@@ -9,6 +9,8 @@ public class InboxSettingsPage extends BasePage{
 
     public InboxSettingsPage(WebDriver wd){
         super(wd);
+        switchToLastWindowHandle();
+        waitForPageToLoad(getDriver(), backToInboxButton);
     }
     @FindBy(xpath = ".//*[@id='back-to-inbox']")
     private WebElement backToInboxButton;

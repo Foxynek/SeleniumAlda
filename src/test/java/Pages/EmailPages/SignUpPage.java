@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 public class SignUpPage extends BasePage {
     public SignUpPage(WebDriver wd){
         super(wd);
+        switchToLastWindowHandle();
+        waitForPageToLoad(getDriver(), emailAdressField);
     }
     @FindBy(xpath = ".//*[@id='register-username']")
     private WebElement emailAdressField;

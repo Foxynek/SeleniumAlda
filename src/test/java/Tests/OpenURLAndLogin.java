@@ -23,8 +23,8 @@ public class OpenURLAndLogin extends BasePage {
     public void openURL() {
         AfterLoginPage afterLoginPage = new AfterLoginPage(getDriver());
             afterLoginPage
-                  .inputUserName("McCree")
-                  .inputPwd("222555")
+                  .inputUserName(getUserName())
+                  .inputPwd(getUserPassword())
                   .clickOnLogin()
                   .clickOnChat()
                   .clickOnChatRoom()

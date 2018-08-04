@@ -9,6 +9,8 @@ public class ConfirmRegistrationPage extends BasePage {
 
     public ConfirmRegistrationPage(WebDriver wd){
         super(wd);
+        switchToLastWindowHandle();
+        waitForPageToLoad(getDriver(), homepageButton);
     }
     @FindBy(xpath = ".//a[@class='to-homepage']")
     private WebElement homepageButton;

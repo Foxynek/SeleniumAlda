@@ -10,7 +10,7 @@ public class SignInPage extends BasePage{
     public SignInPage(WebDriver wd){
         super(wd);
         switchToLastWindowHandle();
-        waitForElementToLoad(emailAdressField);
+        waitForPageToLoad(getDriver(), emailAdressField);
     }
 
     @FindBy(xpath = ".//*[@id='login-username']")

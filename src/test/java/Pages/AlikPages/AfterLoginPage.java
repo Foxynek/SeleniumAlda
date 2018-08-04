@@ -11,6 +11,8 @@ import org.openqa.selenium.support.FindBy;
 public class AfterLoginPage extends BasePage {
     public AfterLoginPage(WebDriver wd){
         super(wd);
+        switchToLastWindowHandle();
+        waitForPageToLoad(getDriver(), chatRoomSelectionButton);
     }
     @FindBy (xpath=".//*[@id='login']")
     private WebElement userNameField;

@@ -11,6 +11,8 @@ import org.openqa.selenium.support.FindBy;
 public class ChatSelectionPage extends BasePage {
     public ChatSelectionPage(WebDriver wd){
         super(wd);
+        switchToLastWindowHandle();
+        waitForPageToLoad(getDriver(), clickOnChatRoom);
     }
     @FindBy(xpath=".//strong/a[@href='/k/jen-tak-na-pokec']")
     private WebElement clickOnChatRoom;

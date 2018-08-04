@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 public class ChatRoomPage extends BasePage {
     public ChatRoomPage(WebDriver wd){
         super(wd);
+        switchToLastWindowHandle();
+        waitForPageToLoad(getDriver(), clickOnSend);
     }
     @FindBy(xpath=".//*[@id='say']")
     private WebElement inputMessage;

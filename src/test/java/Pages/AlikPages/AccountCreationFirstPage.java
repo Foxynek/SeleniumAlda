@@ -9,6 +9,8 @@ public class AccountCreationFirstPage extends BasePage {
 
     public AccountCreationFirstPage(WebDriver wd){
         super(wd);
+        switchToLastWindowHandle();
+        waitForPageToLoad(getDriver(), confirmButton);
     }
 
     @FindBy(xpath = ".//*[@id='prezdivka']")

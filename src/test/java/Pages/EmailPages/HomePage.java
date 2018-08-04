@@ -9,7 +9,7 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver wd){
         super(wd);
         switchToLastWindowHandle();
-        waitForElementToLoad(seznamlogo);
+        waitForPageToLoad(getDriver(), seznamlogo);
     }
     @FindBy(xpath = ".//a[@href='https://registrace.seznam.cz/?hp']")
     private WebElement registrationButton;

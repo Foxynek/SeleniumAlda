@@ -9,6 +9,8 @@ public class AccountCreationSecondPage extends BasePage {
 
     public AccountCreationSecondPage(WebDriver wd){
         super(wd);
+        switchToLastWindowHandle();
+        waitForPageToLoad(getDriver(), confirmButton);
     }
 
     @FindBy(xpath = ".//*[@id='bkrok2']")
