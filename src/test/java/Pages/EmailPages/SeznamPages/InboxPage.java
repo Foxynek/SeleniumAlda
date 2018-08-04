@@ -1,4 +1,4 @@
-package Pages.EmailPages;
+package Pages.EmailPages.SeznamPages;
 
 import Pages.BasePage;
 import org.openqa.selenium.WebDriver;

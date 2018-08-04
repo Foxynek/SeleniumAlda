@@ -1,7 +1,7 @@
 package Tests;
 
 import Pages.BasePage;
-import Pages.EmailPages.HomePage;
+import Pages.EmailPages.SeznamPages.HomePage;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
