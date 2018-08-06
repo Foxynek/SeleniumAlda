@@ -1,6 +1,7 @@
 package Pages;
 
 import PropertiesManager.PropertiesManager;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class BasePage {
@@ -22,8 +26,8 @@ public class BasePage {
     }
     public BasePage(){
     }
-    protected void setDriverProperties(){
-        String url = PropertiesManager.getInstance().getURL();
+    protected void setDriverPropertiesAlda(){
+        String url = PropertiesManager.getInstance().getURLAlda();
         System.setProperty("webdriver.gecko.driver", "A:\\Selenium\\geckodriver-v0.19.1-win64\\geckodriver.exe");
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setCapability("marionette", true);
@@ -31,11 +35,26 @@ public class BasePage {
         wd.get(url);
         wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-    protected String getUserName(){
-        return PropertiesManager.getInstance().getUsername();
+    protected void setDriverPropertiesWedos(){
+        String url = PropertiesManager.getInstance().getURLWedos();
+        System.setProperty("webdriver.gecko.driver", "A:\\Selenium\\geckodriver-v0.19.1-win64\\geckodriver.exe");
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.setCapability("marionette", true);
+        wd = new FirefoxDriver();
+        wd.get(url);
+        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-    protected String getUserPassword(){
-        return PropertiesManager.getInstance().getPassword();
+    protected String getUserNameAlda(){
+        return PropertiesManager.getInstance().getUsernameAlda();
+    }
+    protected String getUserPasswordAlda(){
+        return PropertiesManager.getInstance().getPasswordAlda();
+    }
+    protected String getUserNameWedos(){
+        return PropertiesManager.getInstance().getUsernameWedos();
+    }
+    protected String getUserPasswordWedos(){
+        return PropertiesManager.getInstance().getPasswordWedos();
     }
     protected static WebDriver getDriver(){
         return wd;
@@ -65,5 +84,15 @@ public class BasePage {
     }
     protected boolean isElementPresentAndVisible(String s){
         return getDriver().findElements(By.xpath(s)).isEmpty();
+    }
+    protected String getCurrentDate(){
+        DateFormat dateFormat = new SimpleDateFormat("ddMMyyyy");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+    protected String getCurrentTime(){
+        DateFormat dateFormat = new SimpleDateFormat("HHmmss");
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 }

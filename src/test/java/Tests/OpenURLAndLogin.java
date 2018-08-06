@@ -12,7 +12,7 @@ public class OpenURLAndLogin extends BasePage {
 
     @BeforeTest
     public void setDriver(){
-        setDriverProperties();
+        setDriverPropertiesAlda();
     }
     @AfterTest
     public void afterTest() {
@@ -23,8 +23,8 @@ public class OpenURLAndLogin extends BasePage {
     public void openURL() {
         AfterLoginPage afterLoginPage = new AfterLoginPage(getDriver());
             afterLoginPage
-                  .inputUserName(getUserName())
-                  .inputPwd(getUserPassword())
+                  .inputUserName(getUserNameAlda())
+                  .inputPwd(getUserPasswordAlda())
                   .clickOnLogin()
                   .clickOnChat()
                   .clickOnChatRoom()

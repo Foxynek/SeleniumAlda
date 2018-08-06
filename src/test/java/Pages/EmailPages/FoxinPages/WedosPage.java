@@ -1,6 +1,7 @@
 package Pages.EmailPages.FoxinPages;
 
 import Pages.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,7 +26,7 @@ public class WedosPage extends BasePage {
     private WebElement menu_label;
 
     @FindBy(xpath = ".//*[@id='content']/h1")
-    private WebElement welcomeMessage_label;
+    private WebElement message_label;
 
     @FindBy(xpath = ".//*[text()='Webhosting']")
     private WebElement webHosting_button;
@@ -54,8 +55,11 @@ public class WedosPage extends BasePage {
     @FindBy(xpath= ".//*[@id='frm_input_u_create']")
     private WebElement createEmail_button;
 
+    @FindBy(xpath = ".//*[@id='menu']/div[1]/div/ul/li[7]/a/strong")
+    private WebElement emailList_button;
+
     @FindBy(xpath = ".//*[@id='content']/div[3]/div/ul/li")
-    private WebElement message_label;
+    private WebElement confirmationMessage_label;
 
     public WedosPage inputLoginName(String input){
         input(loginName_textField, input);
@@ -67,7 +71,7 @@ public class WedosPage extends BasePage {
     }
     public WedosPage clickOnLoginButton(){
         click(login_button);
-        waitForPageToLoad(getDriver(), welcomeMessage_label);
+        waitForPageToLoad(getDriver(), message_label);
         return this;
     }
     public WedosPage clickOnWebHostingButton(){
@@ -105,5 +109,18 @@ public class WedosPage extends BasePage {
         click(createEmail_button);
         return this;
     }
-    public String getConfirmationMessage(){return message_label.getText();}
+    public WedosPage clickOnEmailListButton(){
+        click(emailList_button);
+        return this;
+    }
+    public WedosPage deleteAnEmail(String emailName){
+        if (getDriver().findElements(By.xpath(".//*[text()='"+emailName+"']/preceding-sibling::td/img")).size()>0) {
+            click(getDriver().findElement(By.xpath(".//*[text()='" + emailName + "']/preceding-sibling::td/img")));
+            getDriver().switchTo().alert().accept();
+            return this;
+        }
+        else throw new NullPointerException();
+    }
+    public String getConfirmationMessage(){return confirmationMessage_label.getText();}
+    public String getMessage(){return message_label.getText();}
 }
