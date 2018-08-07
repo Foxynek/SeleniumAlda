@@ -1,5 +1,6 @@
 package Tests;
 
+import CSVHelper.CSVHelper;
 import Pages.BasePage;
 import Pages.EmailPages.FoxinPages.WedosPage;
 import org.testng.Assert;
@@ -38,6 +39,6 @@ public class CreateWedosWebMail extends BasePage{
                 .clickOnCreateEmailButton()
                 .getMessage();
         Assert.assertTrue(message.contains(context.getAttribute("emailName").toString()), message);
-        System.out.println(context.getAttribute("emailName").toString());
+        CSVHelper.findDuplicatesInCSVFileAndReplace("wedosMails", "account"+getCurrentDate()+getCurrentTime(), context.getAttribute("emailName").toString());
     }
 }
